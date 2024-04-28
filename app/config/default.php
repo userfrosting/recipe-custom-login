@@ -1,8 +1,9 @@
 <?php
+
     return [
         'site' => [
             'registration' => [
-                'enabled' => false
-            ]
-        ]
+                'enabled' => false,
+            ],
+        ],
     ];
