@@ -17,7 +17,7 @@ use UserFrosting\Sprinkle\Core\Util\RouteParserInterface;
 /**
  * Set redirect to index.
  */
-class UserRedirectedToIndex
+class UserRedirectedToAbout
 {
     public function __construct(
         protected RouteParserInterface $routeParser,
@@ -29,7 +29,7 @@ class UserRedirectedToIndex
      */
     public function __invoke($event): void
     {
-        $path = $this->routeParser->urlFor('index');
+        $path = $this->routeParser->urlFor('about');
         $event->setRedirect($path);
         $event->isPropagationStopped();
     }

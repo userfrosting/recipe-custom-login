@@ -11,7 +11,7 @@
 namespace UserFrosting\App;
 
 use UserFrosting\App\Bakery\HelloCommand;
-use UserFrosting\App\Listener\UserRedirectedToIndex;
+use UserFrosting\App\Listener\UserRedirectedToAbout;
 use UserFrosting\Event\EventListenerRecipe;
 use UserFrosting\Sprinkle\Account\Account;
 use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterLoginEvent;
@@ -123,7 +123,7 @@ class MyApp implements
     {
         return [
             UserRedirectedAfterLoginEvent::class => [
-                UserRedirectedToIndex::class,
+                UserRedirectedToAbout::class,
             ],
         ];
     }
