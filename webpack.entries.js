@@ -10,4 +10,5 @@
 
 module.exports = {
     app: "./app/assets/app.js",
+    'css.sign-in': './app/assets/css/sign-in.css',
 };

@@ -1,0 +1,32 @@
+{% extends '@adminlte-theme/pages/sign-in.html.twig' %}
+
+{% block loginLogo %}{% endblock %}
+
+{% block loginBox %}
+<div class="login-box">
+    <div class="login-box-body login-form">
+        <div class="login-logo">
+            <a href="{{site.uri.public}}">
+                <img src="{{ asset('assets/images/cupcake.svg') }}" style="width: 200px">
+                <p>{{site.title}}</p>
+            </a>
+        </div>
+        <!-- /.login-logo -->
+
+        <div class="form-alerts" id="alerts-page"></div>
+
+        {% block loginForm %}
+            {{ parent() }}
+        {% endblock %}
+
+        {% block loginLinks %}
+            {{ parent() }}
+        {% endblock %}
+    </div>
+    <!-- /.login-box-body -->
+</div>
+{% endblock %}
+
+{% block stylesheets_page %}
+    {{ encore_entry_link_tags('css.sign-in') }}
+{% endblock %}

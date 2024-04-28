@@ -11,7 +11,10 @@
 namespace UserFrosting\App;
 
 use UserFrosting\App\Bakery\HelloCommand;
+use UserFrosting\App\Listener\UserRedirectedToIndex;
+use UserFrosting\Event\EventListenerRecipe;
 use UserFrosting\Sprinkle\Account\Account;
+use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterLoginEvent;
 use UserFrosting\Sprinkle\Admin\Admin;
 use UserFrosting\Sprinkle\BakeryRecipe;
 use UserFrosting\Sprinkle\Core\Core;
@@ -25,7 +28,8 @@ use UserFrosting\Theme\AdminLTE\AdminLTE;
  */
 class MyApp implements
     SprinkleRecipe,
-    BakeryRecipe
+    BakeryRecipe,
+    EventListenerRecipe
 {
     /**
      * Return the Sprinkle name.
@@ -112,6 +116,15 @@ class MyApp implements
     {
         return [
             HelloCommand::class,
+        ];
+    }
+
+    public function getEventListeners(): array
+    {
+        return [
+            UserRedirectedAfterLoginEvent::class => [
+                UserRedirectedToIndex::class,
+            ],
         ];
     }
 }
